@@ -2322,9 +2322,8 @@ static int check_nnp_nosuid(const struct linux_binprm *bprm,
 	char *secdata;
 	int nnp = (bprm->unsafe & LSM_UNSAFE_NO_NEW_PRIVS);
 	int nosuid = !mnt_may_suid(bprm->file->f_path.mnt);
-	u32 av;
 	int rc,error;
-	u32 seclen;
+	u32 av, seclen;
 
 	if (!nnp && !nosuid)
 		return 0; /* neither NNP nor nosuid */
